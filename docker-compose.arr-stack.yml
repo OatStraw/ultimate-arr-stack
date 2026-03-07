@@ -132,7 +132,7 @@ services:
       test: ["CMD-SHELL", "curl -sf http://localhost:8085/ && wget -q --spider --timeout=5 http://www.google.com"]
       interval: 2m
       timeout: 15s
-      retries: 2
+      retries: 4
       start_period: 60s
 
   # ═══════════════════════════════════════════════════════════════════════════
@@ -162,7 +162,7 @@ services:
       test: ["CMD-SHELL", "curl -sf http://localhost:8080/ && wget -q --spider --timeout=5 http://www.google.com"]
       interval: 3m
       timeout: 15s
-      retries: 2
+      retries: 4
       start_period: 60s
 
   # ═══════════════════════════════════════════════════════════════════════════
@@ -189,10 +189,10 @@ services:
     restart: always
     logging: *default-logging
     healthcheck:
-      test: ["CMD-SHELL", "curl -sf http://localhost:8989/ && wget -q --spider --timeout=5 http://www.google.com"]
+      test: ["CMD", "curl", "-sf", "http://localhost:8989/"]
       interval: 2m
       timeout: 15s
-      retries: 2
+      retries: 3
       start_period: 60s
 
   # ═══════════════════════════════════════════════════════════════════════════
@@ -218,10 +218,10 @@ services:
     restart: always
     logging: *default-logging
     healthcheck:
-      test: ["CMD-SHELL", "curl -sf http://localhost:9696/ && wget -q --spider --timeout=5 http://www.google.com"]
+      test: ["CMD", "curl", "-sf", "http://localhost:9696/"]
       interval: 2m
       timeout: 15s
-      retries: 2
+      retries: 3
       start_period: 60s
 
   # ═══════════════════════════════════════════════════════════════════════════
@@ -248,10 +248,10 @@ services:
     restart: always
     logging: *default-logging
     healthcheck:
-      test: ["CMD-SHELL", "curl -sf http://localhost:7878/ && wget -q --spider --timeout=5 http://www.google.com"]
+      test: ["CMD", "curl", "-sf", "http://localhost:7878/"]
       interval: 2m
       timeout: 15s
-      retries: 2
+      retries: 3
       start_period: 60s
 
   # ═══════════════════════════════════════════════════════════════════════════
